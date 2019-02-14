@@ -35,6 +35,7 @@ namespace LarvaSystemsOauth2Api.App_Start
             public ApplicationUserManager(IUserStore<IdentityUser> store)
                 : base(store)
             {
+
             }
 
             public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)

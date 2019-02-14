@@ -1,5 +1,7 @@
 ﻿using LarvaSystemsOauth2Api.Models;
 using LarvaSystemsOauth2Api.Providers;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Facebook;
 using Microsoft.Owin.Security.Google;
@@ -25,7 +27,8 @@ namespace LarvaSystemsOauth2Api.App_Start
             ConfigureOAuth(app);
             HttpConfiguration config = new HttpConfiguration();
             WebApiConfig.Register(config);
-            
+          
+
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
         }     

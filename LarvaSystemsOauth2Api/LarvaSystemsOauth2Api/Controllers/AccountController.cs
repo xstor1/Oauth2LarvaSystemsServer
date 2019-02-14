@@ -1,4 +1,5 @@
 ﻿using LarvaSystemsOauth2Api.App_Start;
+using LarvaSystemsOauth2Api.DatabaseFiles;
 using LarvaSystemsOauth2Api.Models;
 using LarvaSystemsOauth2Api.Repositories;
 using LarvaSystemsOauth2Api.Results;
@@ -24,10 +25,12 @@ namespace LarvaSystemsOauth2Api.Controllers
     {
         private AuthRepository _repo = null;
 
-        public AccountController()
+       public AccountController()
         {
-            _repo = new AuthRepository();
+            _repo = new AuthRepository();          
+           
         }
+       
         [AllowAnonymous]
         [HttpGet]
         [Route("ObtainLocalAccessToken")]

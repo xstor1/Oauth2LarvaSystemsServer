@@ -8,7 +8,9 @@ namespace LarvaSystemsOauth2Api.Models
 {
     public class UserModel
     {
-        
+       [Required]
+       [Display(Name = "User name")]
+        public string UserName { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }

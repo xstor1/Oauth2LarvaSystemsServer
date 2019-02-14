@@ -21,13 +21,18 @@ namespace LarvaSystemsOauth2Api.Repositories
         {
             _ctx = new AuthContext();
             _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
+          _userManager.UserValidator = new UserValidator<IdentityUser>(_userManager)
+            {
+                AllowOnlyAlphanumericUserNames = false,
+                RequireUniqueEmail = true
+            };
         }
 
         public async Task<IdentityResult> RegisterUser(UserModel userModel)
         {
             IdentityUser user = new IdentityUser
             {
-                UserName = userModel.Email,
+                UserName = userModel.UserName,
                 Email = userModel.Email
                
             };
